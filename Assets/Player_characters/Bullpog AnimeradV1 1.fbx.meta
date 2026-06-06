@@ -22,14 +22,43 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|ArmatureAction
+      takeName: Armature|ArmatureAction
+      internalID: 4781951162920444690
+      firstFrame: 0
+      lastFrame: 161
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 0
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -83,7 +112,117 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: Bullpog AnimeradV1 1(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Mage
+      parentName: Bullpog AnimeradV1 1(Clone)
+      position: {x: -0.0005127555, y: 0.0011156744, z: 0.009410418}
+      rotation: {x: 0.8078912, y: 0.099928424, z: 0.117259815, w: 0.56883776}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+    - name: "br\xF6st"
+      parentName: Mage
+      position: {x: -9.3132255e-12, y: 0.004590868, z: 4.656613e-10}
+      rotation: {x: -0.035285596, y: 0.3130692, z: -0.11870654, w: 0.9416217}
+      scale: {x: 0.9999999, y: 1, z: 0.99999994}
+    - name: Huvud
+      parentName: "br\xF6st"
+      position: {x: 1.8626451e-11, y: 0.0050517605, z: 7.4505804e-11}
+      rotation: {x: -0.04902202, y: -0.16875608, z: -0.06708923, w: 0.9821493}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: "Axel.V\xE4nster"
+      parentName: "br\xF6st"
+      position: {x: 1.8626451e-11, y: 0.0050517605, z: 7.4505804e-11}
+      rotation: {x: -0.68720585, y: -0.027164444, z: 0.25178978, w: 0.68089074}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+    - name: "\xD6verarm-V\xE4nster"
+      parentName: "Axel.V\xE4nster"
+      position: {x: 4.4703483e-10, y: 0.0062539605, z: -6.0535965e-11}
+      rotation: {x: -0.060200475, y: 0.3030387, z: 0.14394034, w: 0.94011956}
+      scale: {x: 1, y: 1, z: 0.9999999}
+    - name: "Underarm_v\xE4nster"
+      parentName: "\xD6verarm-V\xE4nster"
+      position: {x: 8.1956386e-10, y: 0.009285864, z: 2.9802322e-10}
+      rotation: {x: -0.0061674565, y: 0.3429507, z: 0.03247421, w: 0.9387717}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: "Hand_V\xE4nster"
+      parentName: "Underarm_v\xE4nster"
+      position: {x: 2.9802322e-10, y: 0.005947505, z: 4.4703483e-10}
+      rotation: {x: 0.1919323, y: 0.08430227, z: 0.06731914, w: 0.9754605}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "Axel_h\xF6ger"
+      parentName: "br\xF6st"
+      position: {x: 1.8626451e-11, y: 0.0050517605, z: 7.4505804e-11}
+      rotation: {x: 0.5889064, y: -0.027745672, z: -0.21207283, w: 0.77938735}
+      scale: {x: 1, y: 1.0000001, z: 1}
+    - name: "\xD6verarm_h\xF6ger"
+      parentName: "Axel_h\xF6ger"
+      position: {x: -1.4901161e-10, y: 0.006824933, z: -4.4703483e-10}
+      rotation: {x: 0.028068028, y: 0.30466938, z: -0.13412884, w: 0.9425488}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: "Underarm_h\xF6ger"
+      parentName: "\xD6verarm_h\xF6ger"
+      position: {x: 1.4901161e-10, y: 0.0074892845, z: 8.6613e-10}
+      rotation: {x: -0.013142006, y: -0.025137862, z: 0.01742306, w: 0.99944574}
+      scale: {x: 0.9999999, y: 0.99999994, z: 1}
+    - name: "hand_h\xF6ger"
+      parentName: "Underarm_h\xF6ger"
+      position: {x: 4.4703483e-10, y: 0.004949054, z: 0.000000002994202}
+      rotation: {x: 0.018810177, y: -0.00063645706, z: 0.07367377, w: 0.99710476}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.9999999}
+    - name: hip.l
+      parentName: Bullpog AnimeradV1 1(Clone)
+      position: {x: 0.0018238687, y: 0.012181637, z: 0.008539438}
+      rotation: {x: 0.14725432, y: 0.021923987, z: 0.1456209, w: 0.9780747}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: hip.r
+      parentName: Bullpog AnimeradV1 1(Clone)
+      position: {x: -0.0018238687, y: 0.012181637, z: 0.008539438}
+      rotation: {x: 0.14725432, y: -0.021923987, z: -0.1456209, w: 0.9780747}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: "Rumpa_v\xE4nster"
+      parentName: Bullpog AnimeradV1 1(Clone)
+      position: {x: -0.0005127555, y: 0.0011156744, z: 0.009410418}
+      rotation: {x: -0.01664212, y: -0.006223681, z: 0.39296046, w: 0.9193837}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: "\xD6verben_v\xE4nster"
+      parentName: "Rumpa_v\xE4nster"
+      position: {x: -6.868504e-11, y: 0.0032307508, z: 5.122274e-11}
+      rotation: {x: -0.578033, y: 0.009509545, z: -0.009889507, w: 0.81589806}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: "L\xE5r_v\xE4nster"
+      parentName: "\xD6verben_v\xE4nster"
+      position: {x: 1.4901161e-10, y: 0.0061608986, z: 2.9802322e-10}
+      rotation: {x: -0.06692218, y: 0.010503983, z: -0.026053648, w: 0.9973627}
+      scale: {x: 1, y: 1, z: 1}
+    - name: "Fot_V\xE4nster'"
+      parentName: "L\xE5r_v\xE4nster"
+      position: {x: -2.6077032e-10, y: 0.009210227, z: 2.9802322e-10}
+      rotation: {x: 0.39764875, y: -0.064394966, z: 0.5980006, w: 0.69290984}
+      scale: {x: 1, y: 0.99999994, z: 1.0000001}
+    - name: "Rumpa_h\xF6ger"
+      parentName: Bullpog AnimeradV1 1(Clone)
+      position: {x: -0.0005127555, y: 0.0011156744, z: 0.009410418}
+      rotation: {x: 0.048849847, y: -0.024295665, z: 0.8882374, w: -0.45613343}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: "\xD6verben_h\xF6ger"
+      parentName: "Rumpa_h\xF6ger"
+      position: {x: 3.8708092e-11, y: 0.003985172, z: -7.166818e-10}
+      rotation: {x: -0.68566793, y: 0.08526857, z: -0.0394528, w: 0.7218257}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: "L\xE5r_h\xF6ger"
+      parentName: "\xD6verben_h\xF6ger"
+      position: {x: -1.1408701e-10, y: 0.0061076847, z: 4.6566126e-11}
+      rotation: {x: -0.054494847, y: 0.05295148, z: -0.04747622, w: 0.9959782}
+      scale: {x: 0.99999994, y: 0.99999976, z: 0.99999994}
+    - name: "Fot_h\xF6ger"
+      parentName: "L\xE5r_h\xF6ger"
+      position: {x: -7.4505804e-11, y: 0.009508175, z: 3.7252902e-11}
+      rotation: {x: 0.5996703, y: 0.05665982, z: -0.2824136, w: 0.7466109}
+      scale: {x: 0.99999994, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -92,7 +231,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: hip.r
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -100,7 +239,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
