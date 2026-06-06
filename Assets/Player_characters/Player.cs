@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
         // Nytt sätt att läsa knapptryck som fungerar i ditt projekt:
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            Vector3 jump = new Vector3(0, 5, 0) * characterSelected;
+            Vector3 jump = new Vector3(0, 1, 0) * characterSelected*0.5f;
             rb.AddForce(jump, ForceMode.Impulse);
         }
         if (Keyboard.current.dKey.isPressed) // isPressed gör att du kan hålla in knappen
