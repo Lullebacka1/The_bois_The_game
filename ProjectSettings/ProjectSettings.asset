@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
-  productGUID: dd5274ab512bbab46b6a48e94a1090f7
+  productGUID: 87f0ddfec1425a4479a1734a6196a170
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: The Bois The Game
+  productName: the bois unity
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -846,14 +846,14 @@ PlayerSettings:
   editorAssembliesCompatibilityLevel: 1
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: The Bois The Game
+  metroPackageName: the bois unity
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: The Bois The Game
+  metroApplicationDescription: the bois unity
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -924,10 +924,10 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: f5d01795-d1c3-4800-81d7-1cd33eafe902
+  cloudProjectId: 65edfc07-264d-47dd-b1fa-004e0f4c5139
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: The Bois The Game
+  projectName: the bois unity
   organizationId: unity_72e63c4de92c8cf4a155
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "The Bois The Game.slnx"
+    "dotnet.defaultSolution": "the bois unity.slnx"
 }
