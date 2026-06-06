@@ -3,16 +3,17 @@ using UnityEngine.InputSystem; // Det nya input-systemet
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private float groundCheckDistance = 1.1f;
     public static Player selected;
     private Rigidbody rb;
     
     // Vi sätter 1f som standard ifall namnet inte matchar helt
-    private float characterSelected = 1f; 
+    private float characterSelected = 1f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();   
-        string myName = gameObject.name.ToLower().Trim(); // Trim tar bort dolda mellanslag
+        string myName = gameObject.name.ToLower().Trim();
         string parentName = transform.parent != null ? transform.parent.name.ToLower().Trim() : string.Empty;
 
         if (myName == "texmex" || parentName == "texmex")
@@ -31,16 +32,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // Kontrollera att tangentbordet är anslutet
+     
         if (Keyboard.current == null) return;
 
-        // Nytt sätt att läsa knapptryck som fungerar i ditt projekt:
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && IsGrounded())
         {
             Vector3 jump = new Vector3(0, 1, 0) * characterSelected*0.5f;
             rb.AddForce(jump, ForceMode.Impulse);
         }
-        if (Keyboard.current.dKey.isPressed) // isPressed gör att du kan hålla in knappen
+        if (Keyboard.current.dKey.isPressed) 
         {
             Vector3 right = new Vector3(5, 0, 0) * characterSelected * Time.deltaTime;
             rb.AddForce(right, ForceMode.VelocityChange);
@@ -61,4 +61,9 @@ public class Player : MonoBehaviour
             rb.AddForce(back, ForceMode.VelocityChange);
         }
     }
+        private bool IsGrounded()
+         {
+        return Physics.Raycast(transform.position, Vector3.down, groundCheckDistance);
+         }
 }
+   
