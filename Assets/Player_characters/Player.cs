@@ -1,39 +1,64 @@
 using UnityEngine;
+using UnityEngine.InputSystem; // Det nya input-systemet
 
 public class Player : MonoBehaviour
 {
-    public float speed = 5f;
-    public float jumpForce = 5f;
+    public static Player selected;
+    private Rigidbody rb;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Vi sätter 1f som standard ifall namnet inte matchar helt
+    private float characterSelected = 1f; 
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();   
+        string myName = gameObject.name.ToLower().Trim(); // Trim tar bort dolda mellanslag
+        string parentName = transform.parent != null ? transform.parent.name.ToLower().Trim() : string.Empty;
+
+        if (myName == "texmex" || parentName == "texmex")
+        {
+            characterSelected = 10f;
+        }
+        else if (myName == "bullpog" || parentName == "bullpog")
+        {
+            characterSelected = 11f;
+        }
+        else if (myName == "lordagen" || parentName == "lordagen")
+        {
+            characterSelected = 12f;
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            addForce(Vector3.up * jumpForce);
-        }
-        if (Input.GetKeyDown(KeyCode.w))
-        {
-          addForce(Vector3.forward * speed);
-        }
-        if (Input.GetKeyDown(KeyCode.s))
-        {
-            addForce(Vector3.back * speed);
-        }
-        if (Input.GetKeyDown(KeyCode.a))
-        {
-            addForce(Vector3.left * speed);
-        }
-        if (Input.GetKeyDown(KeyCode.d))
-        {
-            addForce(Vector3.right * speed);
-        }
+        // Kontrollera att tangentbordet är anslutet
+        if (Keyboard.current == null) return;
 
+        // Nytt sätt att läsa knapptryck som fungerar i ditt projekt:
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            Vector3 jump = new Vector3(0, 5, 0) * characterSelected;
+            rb.AddForce(jump, ForceMode.Impulse);
+        }
+        if (Keyboard.current.dKey.isPressed) // isPressed gör att du kan hålla in knappen
+        {
+            Vector3 right = new Vector3(5, 0, 0) * characterSelected * Time.deltaTime;
+            rb.AddForce(right, ForceMode.VelocityChange);
+        }
+        if (Keyboard.current.aKey.isPressed)
+        {
+            Vector3 left = new Vector3(-5, 0, 0) * characterSelected * Time.deltaTime;
+            rb.AddForce(left, ForceMode.VelocityChange);
+        }
+        if (Keyboard.current.wKey.isPressed)
+        {
+            Vector3 forward = new Vector3(0, 0, 5) * characterSelected * Time.deltaTime;
+            rb.AddForce(forward, ForceMode.VelocityChange);
+        }
+        if (Keyboard.current.sKey.isPressed)
+        {
+            Vector3 back = new Vector3(0, 0, -5) * characterSelected * Time.deltaTime;
+            rb.AddForce(back, ForceMode.VelocityChange);
+        }
     }
 }
