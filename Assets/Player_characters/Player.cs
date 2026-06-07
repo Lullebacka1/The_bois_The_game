@@ -3,13 +3,12 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float groundCheckDistance = 1.1f;
-    [SerializeField] private float moveSpeed = 5f; // Bas-hastighet
+    [SerializeField] private float moveSpeed = 5f; 
     public static Player selected;
     private Rigidbody rb;
     private Animator anim;
     
-    private float characterSelected = 1f;
+    private float characterSelected = 11f;
     private Vector2 inputMovement;
     private bool shouldJump = false;
 
@@ -18,8 +17,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody>();   
         anim = GetComponent<Animator>();
 
-        // Lås rotationen så att karaktären inte ramlar omkull av fysiken
         rb.freezeRotation = true;
+        rb.useGravity = true;
 
         string myName = gameObject.name.ToLower().Trim();
         string parentName = transform.parent != null ? transform.parent.name.ToLower().Trim() : string.Empty;
@@ -33,7 +32,6 @@ public class Player : MonoBehaviour
     {
         if (Keyboard.current == null) return;
 
-        // 1. Hantera Input i Update (så att inga knapptryck missas)
         float moveX = 0f;
         float moveZ = 0f;
 
@@ -44,12 +42,11 @@ public class Player : MonoBehaviour
 
         inputMovement = new Vector2(moveX, moveZ).normalized;
 
-        if (Keyboard.current.spaceKey.wasPressedThisFrame && IsGrounded())
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && Mathf.Abs(rb.linearVelocity.y) < 0.05f)
         {
             shouldJump = true;
         }
 
-        // Sätt animationen baserat på om vi har input
         if (anim != null) 
         {
             anim.SetBool("isWalking", inputMovement.magnitude > 0);
@@ -57,31 +54,28 @@ public class Player : MonoBehaviour
     }
 
     void FixedUpdate()
+{
+    // 1. Räkna ut exakt rörelse baserat på WASD-input (Y är alltid 0 här!)
+    Vector3 movement = new Vector3(inputMovement.x, 0f, inputMovement.y).normalized;
+    Vector3 currentMove = movement * moveSpeed * characterSelected * Time.fixedDeltaTime;
+
+    // 2. Flytta karaktären stabilt längs marken (Fysiken kan inte låsa denna!)
+    rb.MovePosition(transform.position + currentMove);
+
+    // 3. Hantera hoppet helt fristående
+    if (shouldJump)
     {
-        // 2. Hantera all Fysik och Rigidbody i FixedUpdate
-
-        // Räkna ut önskad hastighet på X- och Z-axeln (ingen Time.deltaTime behövs här!)
-        float targetVelocityX = inputMovement.x * moveSpeed * characterSelected;
-        float targetVelocityZ = inputMovement.y * moveSpeed * characterSelected;
-
-        // Behåll Rigidbody-komponentens nuvarande Y-hastighet (så faller vi och hoppar naturligt)
-        float currentYVelocity = rb.linearVelocity.y; // Använd rb.velocity.y om du har en äldre Unity-version
-
-        // Sätt den nya hastigheten direkt
-        rb.linearVelocity = new Vector3(targetVelocityX, currentYVelocity, targetVelocityZ);
-
-        // Hantera hoppet
-        if (shouldJump)
-        {
-            float jumpForce = characterSelected * 0.5f;
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            shouldJump = false; // Återställ hopp-flaggan
-        }
+        float jumpForce = characterSelected * 2.5f; // Ökad kraft för ett bra hopp
+        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        shouldJump = false; 
     }
 
-    private bool IsGrounded()
+    // 4. Den skottsäkra rotations- och positionsspärren för Blender-modellen
+    if (transform.childCount > 0)
     {
-        Vector3 rayStart = transform.position + Vector3.up * 0.2f;
-        return Physics.Raycast(rayStart, Vector3.down, groundCheckDistance);
+        Transform childTransform = transform.GetChild(0);
+        childTransform.localPosition = Vector3.zero;
+        childTransform.localRotation = Quaternion.identity; 
     }
+}
 }
